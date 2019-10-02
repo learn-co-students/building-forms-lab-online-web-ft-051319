@@ -15,12 +15,21 @@ configure({ adapter: new Adapter() })
 
 describe('BandInput component', () => {
   it('has an text input field', () => {
+    // const store = createStore(manageBand)
+    // const wrapper = mount(<Provider store={store}><App /></Provider>)
+
     const wrapper = shallow(<BandInput />)
+
     expect(wrapper.find('input').first().type()).to.equal('input');
   });
 
   it('has an initial state with name key set to empty string', () => {
+    // even though behavior is working as expected - shallow render is causing test issues. 
     const wrapper = shallow(<BandInput />)
+
+    // const store = createStore(manageBand)
+    // const wrapper = mount(<Provider store={store}><App /></Provider>)
+
     expect(wrapper.state(), "BandInput state was not found").to.exist
     expect(wrapper.state('name')).to.equal('')
   });
